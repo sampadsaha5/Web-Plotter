@@ -1,0 +1,193 @@
+root {
+    display: block;
+}
+body{
+    overflow: hidden;
+    margin: 0;
+    background: url(bodyback.png) repeat-x;
+    font-family: 'Verdana';
+}
+#container{
+    position: relative;
+    width: 1000px;
+    height: 100%;
+    margin: auto;
+    box-shadow: 0 0 10px #777;
+}
+
+#toplayer{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    background: #A52A2A;
+}
+#namedabba{
+    position: absolute;
+    top: 10px;
+    height: 30px;
+    left: 30px;
+    font-size: 22px;
+    color: white;
+}
+#functionenter{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 400px;
+    height: 30px;
+    background: white;
+}
+#functioninputva{
+    width: 390px;
+    height: 100%;
+    border: none;
+    outline: none;
+    padding: 0 0 0 10px;
+}
+#centrallayer{
+    position: relative;
+    height: 600px;
+    width: 100%;
+    background: #F0E68C;
+    overflow: hidden;
+}
+#leftcolumn{
+    position: absolute;
+    left: 0px;
+    height: 100%;
+    width: 200px;
+    border: thin solid #999;
+    border-width: 0 1px 0 0;
+    box-shadow: 0 5px 5px #aaa;
+    z-index: 2;
+}
+.lc_parts{
+    float: left;
+    clear: none;
+    width: 100%;
+}
+.mastbuttons{
+    padding: 10px 0;
+    background: #A52A2A;
+    color: #FFF;
+    width: 200px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    cursor: pointer;
+}
+.mastbuttons:hover{
+    box-shadow: 0 0 5px #555;
+}
+.mastdivs{
+    padding: 10px 0;
+    background: #BA813F;
+    color: #FFF;
+    width: 200px;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    text-align: center;
+    margin: 5px 0 0 0;
+}
+.patlacolumn{
+    position: relative;
+    float: left;
+    clear: none;
+    width: 30px;
+}
+.patlacolumnr{
+    position: relative;
+    float: right;
+    clear: none;
+}
+
+.patlacolumnr span{
+    position: relative;
+    float: right;
+    clear: none;
+    color: #333;
+    font-size: 16px;
+    cursor: pointer;
+    height: 30px;
+    width: 160px;
+    padding: 0 0 0 40px;
+    line-height: 30px;    
+}
+.tickImage{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.patlacolumnr span:hover{
+    background: #D67F29;
+    color: white;
+}
+#rightcolumn{
+    position: absolute;
+    right: 0px;
+    height: 100%;
+    width: 798px;
+    border: thin solid #999;
+    border-width: 0 1px 0 0;
+    box-shadow: 0 5px 5px #aaa;
+    z-index: 1;
+    background: white;
+}
+.canvasfpage{
+    position: absolute;
+    left: 0px;
+    width: 800px;
+    height: 600px;
+    z-index: 1;
+    visibility: visible;
+}
+#canvasva{
+
+}
+#canvasva:hover, #canvasva:enabled, #canvasva:focus{
+    cursor: move;
+}
+#canvasvaGrid{
+    visibility: visible;
+}
+#canvasvaCuts{
+    visibility: visible;
+}
+#canvasvaAxes{
+
+}
+#canvasvaNumbers{
+
+}
+#helpdabba{
+    position: absolute;
+    left: 800px;
+    top: 0px;
+    background: #FFFFFF;
+    width: 750px;
+    padding: 0px 0 0px 50px;    
+    height: 100%;
+    color: #777;
+    font-family: Trebuchet MS;
+    font-size: 16px;
+    z-index: 100;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    -webkit-transition: 0.5s all ease-in-out;
+    -moz-transition: 0.5s all ease-in-out;
+    -o-transition: 0.5s all ease-in-out;
+    -ms-transition: 0.5s all ease-in-out;
+    transition: 0.5s all ease-in-out;
+
+}
+#bottomlayer{
+    position: relative;
+    height: 25px;
+    padding: 5px 0 0 0;
+    width: 100%;
+    background: #A52A2A;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+}
