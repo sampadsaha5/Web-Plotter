@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Online Graph plotter</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <script type="text/javascript" src="scripts.js"></script>
+        <link href="styles.css" rel="stylesheet" type="text/css" />
+    </head>
+    <body onload="trigger();">
+        <div id="container">
+            <div id="toplayer">
+                <div id="namedabba">Graph plotter</div>
+                <div id="functionenter">
+                    <input id="functioninputva" placeholder="Enter the function eg. - sin(x*cos(x))" value="sin(x*cos(x))" onkeyup="inputDone();"/>
+                </div>
+            </div>
+            <div id="centrallayer" >
+                <div id="leftcolumn">
+                    <div class="lc_parts">
+                        <div class="mastdivs">Visible things</div>
+                        <div class="patlacolumnr">
+                            <span onclick="showHideGrid();"><img class="tickImage" id="tickIGrid" src="tick.png" />Grid</span><br/>
+                            <span onclick="showHideAxes();"><img class="tickImage" id="tickIAxes" src="tick.png" />Axes</span><br/>
+                            <span onclick="showHideCuts();"><img class="tickImage" id="tickICuts" src="tick.png" />Cuts</span><br/>
+                            <span onclick="showHideNumbers();"><img class="tickImage" id="tickINumbers" src="tick.png" />Numbers</span><br/>
+                        </div>
+                    </div>
+
+                    <!--<div class="lc_parts">
+                        <div class="mastdivs">Show</div>
+                        <div class="patlacolumnr">
+                            <span>Cartesian</span><br/>
+                            <span>Polar</span><br/>
+                        </div>
+                    </div>-->
+                    <div class="lc_parts">
+                        <div class="mastdivs" onclick="helpClicked();" style="cursor: pointer;" id="helpbutton">Show Help</div>
+                    </div>
+
+                </div>
+                <div id="rightcolumn">
+                    <canvas class="canvasfpage" id="canvasvaGrid" width="800" height="600">Your browser does not support the HTML5 canvas tag.</canvas>
+                    <canvas class="canvasfpage" id="canvasvaCuts" width="800" height="600">Your browser does not support the HTML5 canvas tag.</canvas>
+                    <canvas class="canvasfpage" id="canvasvaAxes" width="800" height="600">Your browser does not support the HTML5 canvas tag.</canvas>
+                    <canvas class="canvasfpage" id="canvasvaNumbers" width="800" height="600">Your browser does not support the HTML5 canvas tag.</canvas>
+                    <canvas class="canvasfpage" id="canvasva" ondrop="shouldI = true; plotGraph(zoom);" draggable="true" ondrag="graphMove();" width="800" height="600">Your browser does not support the HTML5 canvas tag.</canvas>
+                    <div id="helpdabba">
+                        <p>You can scroll to zoom and drag the graph to different positions.</p>
+                        <p>You can use a variety of mathematical in their obvious forms. A short list of some functions is given below. You can use any combination of these function to get different graphs</p>
+                        <p>You can choose to show or hide the axes, cuts, Grid by clicking on the buttons in the top left corner.</p>
+                        <table class="reference"> <tr> <th width="150px" align="left">Property</th> <th width="550px" align="left">Description</th> </tr> <tr> <td>abs(x)</a></td> <td>Returns the absolute value of x</td> </tr> <tr> <td>acos(x)</a></td> <td>Returns the arccosine of x, in radians</td> </tr> <tr> <td>asin(x)</a></td> <td>Returns the arcsine of x, in radians</td> </tr> <tr> <td>atan(x)</a></td> <td>Returns the arctangent of x as a numeric value between -PI/2 and PI/2 radians</td> </tr> <tr> <td>atan2(y,x)</a></td> <td>Returns the arctangent of the quotient of its arguments</td> </tr> <tr> <td>ceil(x)</a></td> <td>Returns x, rounded upwards to the nearest integer</td> </tr> <tr> <td>cos(x)</a></td> <td>Returns the cosine of x (x is in radians)</td> </tr> <tr> <td>exp(x)</a></td> <td>Returns the value of E<sup>x</sup></td> </tr> <tr> <td>floor(x)</a></td> <td>Returns x, rounded downwards to the nearest integer</td> </tr> <tr> <td>log(x)</a></td> <td>Returns the natural logarithm (base E) of x</td> </tr> <tr> <td>max(x,y,z,...,n)</a></td> <td>Returns the number with the highest value</td> </tr> <tr> <td>min(x,y,z,...,n)</a></td> <td>Returns the number with the lowest value</td> </tr> <tr> <td>pow(x,y)</a></td> <td>Returns the value of x to the power of y</td> </tr> <tr> <td>random()</a></td> <td>Returns a random number between 0 and 1</td> </tr> <tr> <td>round(x)</a></td> <td>Rounds x to the nearest integer</td> </tr> <tr> <td>sin(x)</a></td> <td>Returns the sine of x (x is in radians)</td> </tr> <tr> <td>sqrt(x)</a></td> <td>Returns the square root of x</td> </tr> <tr> <td>tan(x)</a></td> <td>Returns the tangent of an angle</td> </tr> </table><br/> <table class="reference"> <tr> <th width="150px" align="left">Property</th> <th width="550px" align="left">Description</th> </tr> <tr> <td>E</a></td> <td>Returns Euler's number (approx. 2.718)</td> </tr> <tr> <td>LN2</a></td> <td>Returns the natural logarithm of 2 (approx. 0.693)</td> </tr> <tr> <td>LN10</a></td> <td>Returns the natural logarithm of 10 (approx. 2.302)</td> </tr> <tr> <td>LOG2E</a></td> <td>Returns the base-2 logarithm of E (approx. 1.442)</td> </tr> <tr> <td>LOG10E</a></td> <td>Returns the base-10 logarithm of E (approx. 0.434)</td> </tr> <tr> <td>PI</a></td> <td>Returns PI (approx. 3.14)</td> </tr> <tr> <td>SQRT1_2</a></td> <td>Returns the square root of 1/2 (approx. 0.707)</td> </tr> <tr> <td>SQRT2</a></td> <td>Returns the square root of 2 (approx. 1.414)</td> </tr> </table><br/>
+                    </div>
+                </div>
+            </div>
+            <div id="bottomlayer">by Sampad Kumar Saha</div>
+        </div>
+        <script type="text/javascript">
+            var c=document.getElementById("canvasva");
+            var ctx=c.getContext("2d");
+            ctx.strokeStyle = '#741BE0';
+            ctx.fillStyle="";
+
+            var c=document.getElementById("canvasvaGrid");
+            var ctxGrid=c.getContext("2d");
+            ctxGrid.strokeStyle = '#CCEECC';
+            ctxGrid.fillStyle="";
+
+            var c=document.getElementById("canvasvaAxes");
+            var ctxAxes=c.getContext("2d");
+            ctxAxes.fillStyle="";
+
+            var c=document.getElementById("canvasvaCuts");
+            var ctxCuts=c.getContext("2d");
+            ctxCuts.fillStyle="";
+
+            var c=document.getElementById("canvasvaNumbers");
+            var ctxNumbers=c.getContext("2d");
+            ctxNumbers.fillStyle="";
+
+        </script>
+    </body>
+</html>
